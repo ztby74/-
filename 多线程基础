@@ -22,3 +22,29 @@
     Thread：
     Runnable：
     Callable/Future：call
+
+
+线程的生命周期：
+  new状态：在Java中的
+  运行状态：就绪，运行，os调度，运行也会成就绪状态，取决系统调度，yield
+  wating状态：导致[sleep，wait，join，LockSupport.parkUntil] ,解决[notify,notifyall,LockSupport.unpark]
+  time_wating状态：导致[sleep，wait，join，LockSupport.parkUntil] ,解决[notify,notifyall,LockSupport.unpark]
+  blocked状态：锁synchronized阻塞导致
+  终止状态：线程运行结束
+  
+  
+  线程中断：
+    isInterrupted:中断标记
+    interrupt：中断
+  
+  
+ 线程的安全问题：
+    多线程访问同一资源会带来数据安全问题：synchronized
+    
+ synchronized:同步锁，修饰实力，类
+ 
+ 锁的状态：
+    无锁状态：25bit存储对象的hashCode，4bit存储分代年龄，1bit存储是否偏向锁(0)，2bit存储锁的标志位(01)
+    轻量级锁：30bit存储指向栈中锁记录的指针，2bit存储锁标志位(00)
+    重量级锁：30bit存储指向互斥锁的指针，2bit存储锁标志位(10)
+    
